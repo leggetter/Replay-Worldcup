@@ -1,7 +1,10 @@
+* {
+	margin: 0; padding: 0;
+}
 body {
 	background: url(/images/grass.jpg);
 	color: #FFF;
-	font: 12px Helvetica, Arial, sans-serif;
+	font: 16px Helvetica, Arial, sans-serif;
 	min-width: 930px;
 }
 
@@ -9,8 +12,58 @@ a {
 	color: #FFF;
 }
 
+ul {
+	list-style: none;
+}
+
 header {
 	background: #3E5D9D;
 	padding: 10px;
 	text-align: center;
+	height: 40px;
+}
+
+#home, #away, #stats { width: 30% }
+
+#home {
+	position: fixed;
+	top: 60px;
+	left: 0;
+}
+
+#stats {
+	position: absolute;
+	top: 60px;
+	left: 35%;
+}
+
+#away {
+	position: fixed;
+	top: 60px;
+	left: 70%;
+}
+
+
+#stats {
+	color: #aaa;
+	padding: 30px 0;
+	background: #FFF;
+	text-align: center;
+}
+
+figure {
+	border-bottom: 1px solid #eee;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+}
+section {
+	padding: 30px;
+	text-align: center;
+}
+section h1 {
+	font-size: 50px;
+	margin-bottom: 30px;
+}
+section h2 {
+	font-size: 250px;
 }

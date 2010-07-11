@@ -207,6 +207,25 @@ Referee: "Ravshan Irmatov"
 ResultType: "NormalResult"
 Venue: "Green Point Stadium"
 */
+/*
+sHTML += mUpdate["AwayTeam"] + "</td></tr>\n";
+			sHTML += statsRow("TotalScoringAtt", "Total shots", mUpdate);
+			sHTML += statsRow("OntargetScoringAtt", "Shots on target", mUpdate);
+			sHTML += statsRow("PossessionPercentage", "Possession %", mUpdate);
+			sHTML += statsRow("WonCorners", "Corners", mUpdate);
+			sHTML += statsRow("FkFoulLost", "Fouls committed", mUpdate);
+			sHTML += statsRow("TotalPass", "Passes completed", mUpdate);
+			sHTML += statsRow("TotalLongBalls", "Long balls", mUpdate);
+			sHTML += statsRow("AccurateLongBalls", "Accurate long balls", mUpdate);
+			sHTML += statsRow("GoalKicks", "Goal kicks", mUpdate);
+			sHTML += statsRow("TotalThrows", "Throw-ins", mUpdate);
+			sHTML += statsRow("Interception", "Interceptions", mUpdate);
+			sHTML += statsRow("SubsMade", "Substitutions", mUpdate);
+			sHTML += statsRow("TotalYelCard", "Yellow cards", mUpdate);
+*/
+
+alert = function(msg) { return; }
+
 var Replay={
 	initialize:function() {
 		var oConnection = kwwika.Service.connect();
@@ -219,15 +238,51 @@ var Replay={
 				$$('#away h2')[0].update(d.AwayTeamScore);
 				
 				
-				Replay.passes(d);
+				Replay.updateCharts(d,'HomeTeamTotalScoringAtt', 'AwayTeamTotalScoringAtt', 'shots', 'shots-chart');
+				Replay.updateCharts(d,'HomeTeamOntargetScoringAtt', 'AwayTeamOntargetScoringAtt', 'shotstarget', 'shotstarget-chart');
+				Replay.updateCharts(d,'HomeTeamTouches', 'AwayTeamTouches', 'touches', 'touches-chart');
+				Replay.updateCharts(d, 'HomeTeamAccuratePass', 'AwayTeamAccuratePass', 'passes', 'passes-chart');
+				Replay.updateCharts(d, 'HomeTeamInterception', 'AwayTeamInterception', 'inter', 'inter-chart');
+				Replay.updateCharts(d, 'HomeTeamPossessionPercentage', 'AwayTeamPossessionPercentage', 'possesion', 'possesion-chart');
+				Replay.updateCharts(d, 'HomeTeamTotalTackle', 'AwayTeamTotalTackle', 'tackles', 'tackles-chart');
+				Replay.updateCharts(d, 'HomeTeamTotalLongBalls', 'AwayTeamTotalLongBalls', 'longballs', 'longballs-chart');
+				Replay.updateCharts(d, 'HomeTeamAccurateLongBalls', 'AwayTeamAccurateLongBalls', 'accuratelongballs', 'accuratelongballs-chart');
+				Replay.updateCharts(d, 'HomeTeamTotalThrows', 'AwayTeamTotalThrows', 'throws', 'throws-chart');
+				Replay.updateCharts(d, 'HomeTeamWonCorners', 'AwayTeamWonCorners', 'corners', 'corners-chart');
+				Replay.updateCharts(d, 'HomeTeamGoalKicks', 'AwayTeamGoalKicks', 'goalkicks', 'goalkicks-chart');
+				Replay.updateCharts(d, 'HomeTeamFkFoulLost', 'AwayTeamFkFoulLost', 'foul', 'foul-chart');
+				Replay.updateCharts(d, 'HomeTeamTotalYelCard', 'AwayTeamTotalYelCard', 'yellows', 'yellows-chart');
+				Replay.updateCharts(d, 'HomeTeamSubsMade', 'AwayTeamSubsMade', 'subs', 'subs-chart');
 			},
 			topicError:function(oSub, sError){ return; }
 		});
 	},
 	
-	passes:function(d) {
-		$$('#passes li')[0].update("<strong>"+d.HomeTeam+"</strong>: "+d.HomeTeamAccuratePass);
-		$$('#passes li')[1].update("<strong>"+d.AwayTeam+"</strong>: "+d.AwayTeamAccuratePass);
+	updateCharts:function(d,homeStat,awayStat,id,chartid) {
+		d[homeStat] = (d[homeStat] == undefined) ? 0 : d[homeStat];
+		d[awayStat] = (d[awayStat] == undefined) ? 0 : d[awayStat];
+				
+		$$('#'+id+' li')[0].update("<strong>"+d.HomeTeam+"</strong>: "+d[homeStat]);
+		$$('#'+id+' li')[1].update("<strong>"+d.AwayTeam+"</strong>: "+d[awayStat]);
+		
+			var total = parseInt(d[homeStat]) + parseInt(d[awayStat]);
+			var HomePerc = (d[homeStat]/total)*100;
+			var AwayPerc = (d[awayStat]/total)*100;
+					
+			var myData = new Array([d.HomeTeam, HomePerc], [d.AwayTeam, AwayPerc]);
+			var colors = ['#C40000', '#750303'];
+			var myChart = new JSChart(chartid, 'pie');
+			myChart.setDataArray(myData);
+			myChart.setTitle('');
+			myChart.setTitleColor('#8E8E8E');
+			myChart.setTitleFontSize(11);
+			myChart.setPiePosition(180, 0);
+			myChart.colorizePie(colors);
+			myChart.setTextPaddingTop(0);
+			myChart.setSize(300, 240);
+			myChart.setPieRadius(85);
+			myChart.setPieUnitsColor('#555');
+			myChart.draw();
 	}
 };
 
