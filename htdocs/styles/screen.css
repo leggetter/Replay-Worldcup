@@ -1,0 +1,16 @@
+body {
+	background: url(/images/grass.jpg);
+	color: #FFF;
+	font: 12px Helvetica, Arial, sans-serif;
+	min-width: 930px;
+}
+
+a {
+	color: #FFF;
+}
+
+header {
+	background: #3E5D9D;
+	padding: 10px;
+	text-align: center;
+}
