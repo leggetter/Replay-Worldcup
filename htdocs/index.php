@@ -34,6 +34,7 @@
 	It lets you replay a match and see how different statistics were reflected in the final outcome.</p>
 	<p>Streaming API <a href='http://kwwika.com/'>powered by Kwwika</a>, match data provided by 
 	<a href='http://www.optasports.com/'>Opta Sports</a> and sponsored by <a href='http://tellylinks.com/'>Tellylinks.com</a></p>
+	<p>This script is open source (LGPL) and available on <a href='http://github.com/aaronbassett/Replay-Worldcup'>Github</a></p>
 </header>
 
 <div id='wrapper'>

@@ -16,11 +16,16 @@ ul {
 	list-style: none;
 }
 
+p {
+	margin-bottom: 3px;
+}
+
 header {
 	background: #3E5D9D;
 	padding: 10px;
 	text-align: center;
 	height: 40px;
+	font-size: 10px;
 }
 
 #home, #away, #stats { width: 30% }
@@ -61,7 +66,7 @@ section {
 	text-align: center;
 }
 section h1 {
-	font-size: 50px;
+	font-size: 40px;
 	margin-bottom: 30px;
 }
 section h2 {
