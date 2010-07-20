@@ -34,10 +34,16 @@
 	It lets you replay a match and see how different statistics were reflected in the final outcome.</p>
 	<p>Streaming API <a href='http://kwwika.com/'>powered by Kwwika</a>, match data provided by 
 	<a href='http://www.optasports.com/'>Opta Sports</a> and sponsored by <a href='http://tellylinks.com/'>Tellylinks.com</a></p>
-	<p>This script is open source (LGPL) and available on <a href='http://github.com/aaronbassett/Replay-Worldcup'>Github</a></p>
+	<p>This script is open source (LGPL) and available on <a href="http://github.com/kwwika/Replay-Worldcup">GitHub</a>.
+	It is based on a script by Aaron Bassett: <a href='http://github.com/aaronbassett/Replay-Worldcup'>Github</a></p>
+	
 </header>
 
 <div id='wrapper'>
+
+	<section id='timeplayed'>
+		<h2>0</h2> minutes played
+	</section>
 
 	<section id='home'>
 		<h1>HOME</h1>
@@ -46,186 +52,184 @@
 	
 	<article id='stats'>
 		<figure id='shots'>
-			<div id='shots-chart'></div>
-			
+						
 			<figcaption>
-				<h3>Total Shots made</h3>
+				<h3>Total Shots</h3>
+				<div id='shots-chart'></div>
 				<ul>
-					<li style='color: #C40000;'><strong>Home</strong>: 0</li>
-					<li style='color: #750303;'><strong>Away</strong>: 0</li>
+					<li style='color: #C40000;'><strong>Home</strong> 0</li>
+					<li style='color: #750303;'>0 <strong>Away</strong></li>
 				</ul>
 			</figcaption>
 		</figure>
 		
 		<figure id='shotstarget'>
-			<div id='shotstarget-chart'></div>
-			
+						
 			<figcaption>
 				<h3>Shots on target</h3>
+				<div id='shotstarget-chart'></div>
 				<ul>
-					<li style='color: #C40000;'><strong>Home</strong>: 0</li>
-					<li style='color: #750303;'><strong>Away</strong>: 0</li>
+					<li style='color: #C40000;'><strong>Home</strong> 0</li>
+					<li style='color: #750303;'>0 <strong>Away</strong></li>
 				</ul>
 			</figcaption>
 		</figure>
 		
 		<figure id='possesion'>
-			<div id='possesion-chart'></div>
-			
+						
 			<figcaption>
 				<h3>Possession (%)</h3>
+				<div id='possesion-chart'></div>
 				<ul>
-					<li style='color: #C40000;'><strong>Home</strong>: 0</li>
-					<li style='color: #750303;'><strong>Away</strong>: 0</li>
+					<li style='color: #C40000;'><strong>Home</strong> 0</li>
+					<li style='color: #750303;'>0 <strong>Away</strong></li>
 				</ul>
 			</figcaption>
 		</figure>
 		
-		<figure id='touches'>
-			<div id='touches-chart'></div>
+		<figure id='touches'>			
 			
 			<figcaption>
 				<h3>Total touches</h3>
+				<div id='touches-chart'></div>
 				<ul>
-					<li style='color: #C40000;'><strong>Home</strong>: 0</li>
-					<li style='color: #750303;'><strong>Away</strong>: 0</li>
+					<li style='color: #C40000;'><strong>Home</strong> 0</li>
+					<li style='color: #750303;'>0 <strong>Away</strong></li>
 				</ul>
 			</figcaption>
 		</figure>
 		
-		<figure id='passes'>
-			<div id='passes-chart'></div>
+		<figure id='passes'>			
 			
 			<figcaption>
 				<h3>Accurate Passes</h3>
+				<div id='passes-chart'></div>
 				<ul>
-					<li style='color: #C40000;'><strong>Home</strong>: 0</li>
-					<li style='color: #750303;'><strong>Away</strong>: 0</li>
+					<li style='color: #C40000;'><strong>Home</strong> 0</li>
+					<li style='color: #750303;'>0 <strong>Away</strong></li>
 				</ul>
 			</figcaption>
 		</figure>
 		
-		<figure id='inter'>
-			<div id='inter-chart'></div>
+		<figure id='inter'>			
 			
 			<figcaption>
 				<h3>Interceptions</h3>
+				<div id='inter-chart'></div>
 				<ul>
-					<li style='color: #C40000;'><strong>Home</strong>: 0</li>
-					<li style='color: #750303;'><strong>Away</strong>: 0</li>
+					<li style='color: #C40000;'><strong>Home</strong> 0</li>
+					<li style='color: #750303;'>0 <strong>Away</strong></li>
 				</ul>
 			</figcaption>
 		</figure>
 		
-		<figure id='longballs'>
-			<div id='longballs-chart'></div>
+		<figure id='longballs'>			
 			
 			<figcaption>
 				<h3>Total long balls</h3>
+				<div id='longballs-chart'></div>
 				<ul>
-					<li style='color: #C40000;'><strong>Home</strong>: 0</li>
-					<li style='color: #750303;'><strong>Away</strong>: 0</li>
+					<li style='color: #C40000;'><strong>Home</strong> 0</li>
+					<li style='color: #750303;'>0 <strong>Away</strong></li>
 				</ul>
 			</figcaption>
 		</figure>
 		
 		<figure id='accuratelongballs'>
-			<div id='accuratelongballs-chart'></div>
-			
+						
 			<figcaption>
 				<h3>Accurate long balls</h3>
+				<div id='accuratelongballs-chart'></div>
 				<ul>
-					<li style='color: #C40000;'><strong>Home</strong>: 0</li>
-					<li style='color: #750303;'><strong>Away</strong>: 0</li>
+					<li style='color: #C40000;'><strong>Home</strong> 0</li>
+					<li style='color: #750303;'>0 <strong>Away</strong></li>
 				</ul>
 			</figcaption>
 		</figure>
 		
 		<figure id='tackles'>
-			<div id='tackles-chart'></div>
-			
+						
 			<figcaption>
 				<h3>Tackles Made</h3>
+				<div id='tackles-chart'></div>
 				<ul>
-					<li style='color: #C40000;'><strong>Home</strong>: 0</li>
-					<li style='color: #750303;'><strong>Away</strong>: 0</li>
+					<li style='color: #C40000;'><strong>Home</strong> 0</li>
+					<li style='color: #750303;'>0 <strong>Away</strong></li>
 				</ul>
 			</figcaption>
 		</figure>
 		
 		<figure id='throws'>
-			<div id='throws-chart'></div>
-			
+						
 			<figcaption>
 				<h3>Throw-ins taken</h3>
+				<div id='throws-chart'></div>
 				<ul>
-					<li style='color: #C40000;'><strong>Home</strong>: 0</li>
-					<li style='color: #750303;'><strong>Away</strong>: 0</li>
+					<li style='color: #C40000;'><strong>Home</strong> 0</li>
+					<li style='color: #750303;'>0 <strong>Away</strong></li>
 				</ul>
 			</figcaption>
 		</figure>
 		
 		<figure id='corners'>
-			<div id='corners-chart'></div>
-			
+						
 			<figcaption>
 				<h3>Corners won</h3>
+				<div id='corners-chart'></div>
 				<ul>
-					<li style='color: #C40000;'><strong>Home</strong>: 0</li>
-					<li style='color: #750303;'><strong>Away</strong>: 0</li>
+					<li style='color: #C40000;'><strong>Home</strong> 0</li>
+					<li style='color: #750303;'>0 <strong>Away</strong></li>
 				</ul>
 			</figcaption>
 		</figure>
 		
 		<figure id='goalkicks'>
-			<div id='goalkicks-chart'></div>
-			
+						
 			<figcaption>
 				<h3>Goal kicks made</h3>
+				<div id='goalkicks-chart'></div>
 				<ul>
-					<li style='color: #C40000;'><strong>Home</strong>: 0</li>
-					<li style='color: #750303;'><strong>Away</strong>: 0</li>
+					<li style='color: #C40000;'><strong>Home</strong> 0</li>
+					<li style='color: #750303;'>0 <strong>Away</strong></li>
 				</ul>
 			</figcaption>
 		</figure>
 		
-		<figure id='foul'>
-			<div id='foul-chart'></div>
+		<figure id='foul'>			
 			
 			<figcaption>
 				<h3>Total Fouls</h3>
+				<div id='foul-chart'></div>
 				<ul>
-					<li style='color: #C40000;'><strong>Home</strong>: 0</li>
-					<li style='color: #750303;'><strong>Away</strong>: 0</li>
+					<li style='color: #C40000;'><strong>Home</strong> 0</li>
+					<li style='color: #750303;'>0 <strong>Away</strong></li>
 				</ul>
 			</figcaption>
 		</figure>
 		
 		<figure id='yellows'>
-			<div id='yellows-chart'></div>
-			
+						
 			<figcaption>
 				<h3>Yellow cards</h3>
+				<div id='yellows-chart'></div>
 				<ul>
-					<li style='color: #C40000;'><strong>Home</strong>: 0</li>
-					<li style='color: #750303;'><strong>Away</strong>: 0</li>
+					<li style='color: #C40000;'><strong>Home</strong> 0</li>
+					<li style='color: #750303;'>0 <strong>Away</strong></li>
 				</ul>
 			</figcaption>
 		</figure>
 		
-		<figure id='subs'>
-			<div id='subs-chart'></div>
+		<figure id='subs'>			
 			
 			<figcaption>
 				<h3>Substitions made</h3>
+				<div id='subs-chart'></div>
 				<ul>
-					<li style='color: #C40000;'><strong>Home</strong>: 0</li>
-					<li style='color: #750303;'><strong>Away</strong>: 0</li>
+					<li style='color: #C40000;'><strong>Home</strong> 0</li>
+					<li style='color: #750303;'>0 <strong>Away</strong></li>
 				</ul>
 			</figcaption>
 		</figure>
-
-
 
 	</article>
 	
@@ -237,7 +241,7 @@
 
 <script type="text/javascript" src="/js/prototype.s2.min.js"></script>
 <script type="text/javascript" src="http://api.kwwika.com/latest/"></script>
-<script type="text/javascript" src="/js/jscharts.js"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript" src="/js/replay.js"></script>
 
 </body>
