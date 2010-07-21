@@ -21,6 +21,46 @@ var Replay={
 			topicUpdated:function(oSub, d){
 				this.homeTeam = d.HomeTeam;
 				this.awayTeam = d.AwayTeam;
+				this.matchPeriod = d.MatchPeriod;
+				this.minutesPlayed = parseInt(d.MatchTime, 10);
+				this.totalMatchLength = this.matchPeriodToMatchMinutes(this.matchPeriod);
+				this.percentagePlayed = ((this.minutesPlayed / this.totalMatchLength) * 100);
+				
+				if(this.minutesPlayed === 0)
+				{
+					$$(".ball").each(function(el)
+					{
+						el.remove();
+					});
+				}
+				
+				var goalScored = false;
+				var goalTeam = "";
+				var newHomeTeamScore = parseInt(d.HomeTeamScore, 10);
+				var newAwayTeamScore = parseInt(d.AwayTeamScore, 10);
+				if(this.homeTeamScore !== undefined && this.homeTeamScore < newHomeTeamScore)
+				{					
+					goalScored = true;
+					goalTeam = this.homeTeam;
+				}
+				if(this.awayTeamScore !== undefined && this.awayTeamScore < newAwayTeamScore)
+				{					
+					goalScored = true;
+					goalTeam = this.awayTeam;
+				}
+				this.homeTeamScore = newHomeTeamScore;
+				this.awayTeamScore = newAwayTeamScore;
+				
+				if(goalScored)
+				{
+					var goal = new Element("img", {
+													src:"images/ball.png",
+													class:"ball",
+													title: "Goal for " + goalTeam + "! " + this.minutesPlayed + " minutes"});
+					goal.setStyle({left:this.percentagePlayed + "%"});
+						
+					$('totaltime').appendChild(goal);
+				}
 				
 				$$('#home h1')[0].update(d.HomeTeam);
 				$$('#away h1')[0].update(d.AwayTeam);
@@ -28,8 +68,9 @@ var Replay={
 				$$('#home h2')[0].update(d.HomeTeamScore);
 				$$('#away h2')[0].update(d.AwayTeamScore);
 				
-				$$('#timeplayed h2')[0].update(d.MatchTime);
+				$$('#time h2')[0].update(this.minutesPlayed);
 				
+				$('playedtime').setStyle({width: this.percentagePlayed + "%"});
 				
 				Replay.updateCharts(d,'HomeTeamTotalScoringAtt', 'AwayTeamTotalScoringAtt', 'shots', 'shots-chart', "Total shots");
 				Replay.updateCharts(d,'HomeTeamOntargetScoringAtt', 'AwayTeamOntargetScoringAtt', 'shotstarget', 'shotstarget-chart', "Shots on target");
@@ -47,7 +88,22 @@ var Replay={
 				Replay.updateCharts(d, 'HomeTeamTotalYelCard', 'AwayTeamTotalYelCard', 'yellows', 'yellows-chart', "Yellow cards");
 				Replay.updateCharts(d, 'HomeTeamSubsMade', 'AwayTeamSubsMade', 'subs', 'subs-chart', "Substitutions");
 			},
-			topicError:function(oSub, sError){ return; }
+			topicError:function(oSub, sError){ return; },
+			matchPeriodToMatchMinutes:function(period)
+			{
+				switch(period)
+				{			
+					case "ShootOut":
+					case "ExtraFirstHalf":
+					case "ExtraSecondHalf":
+						return 120;						
+						case "FullTime":
+					case "FirstHalf":
+					case "SecondHalf":
+						return 90;
+						break;
+				}
+			}
 		});
 	},
 	

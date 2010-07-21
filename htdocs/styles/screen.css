@@ -46,15 +46,38 @@ header {
 
 #home, #away, #stats, #timeplayed { width: 30% }
 
-#timeplayed
+#time
 {
 	margin: auto;
 	font-weight: bold;
+	width: 30%;
 }
 
-#timeplayed h2
+
+#time h2
 {
 	font-size: 40px;
+}
+
+#totaltime
+{
+	background-color:white;
+	height:15px;
+	margin-top:10px;
+	position: relative;
+}
+
+#totaltime .ball
+{
+	position: absolute;
+	top: -1px;
+	z-index: 100;
+}
+
+#playedtime
+{
+	height: 15px;
+	background-color: black;
 }
 
 #home {
@@ -65,7 +88,7 @@ header {
 
 #stats {
 	position: absolute;
-	top: 180px;
+	top: 182px;
 	left: 35%;
 }
 
